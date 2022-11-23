@@ -19,8 +19,8 @@ struct GameView: View {
                 VStack(alignment: .center, spacing: 10){
                     Group{
                         Rectangle().frame(width: 42, height: 42).cornerRadius(5)
-                        Text("BRA").font(.system(size: 15)).fontWeight(.thin).accessibilityLabel("Brasil")
-                        Text("\(2)").font(.system(size: 40))
+                        Text("BRA").font(.title3).fontWeight(.thin).accessibilityLabel("Brasil")
+                        Text("\(2)").font(.largeTitle)
                     }
                 }
                 
@@ -29,13 +29,15 @@ struct GameView: View {
                 VStack(alignment: .center, spacing: 10){
                     Group{
                         Rectangle().frame(width: 42, height: 42).cornerRadius(5)
-                        Text("ARG").font(.system(size: 15)).fontWeight(.thin).accessibilityLabel("Argentina")
-                        Text("\(0)").font(.system(size: 40))
+                        Text("ARG").font(.title3).fontWeight(.thin).accessibilityLabel("Argentina")
+                        Text("\(0)")
+                            .font(.largeTitle)
                     }
                 }
             }
             
-            Text("90' + 2").font(.system(size: 10))
+            Text("90' + 2")
+                .font(.footnote)
         }
         
     }
