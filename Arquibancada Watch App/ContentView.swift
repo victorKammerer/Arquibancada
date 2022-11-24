@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
     var body: some View {
         ZStack{
             Color.gray.ignoresSafeArea().opacity(0.1)
@@ -24,11 +24,10 @@ struct ContentView: View {
             }
             HomeView()
         }
-    }
-}
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        static var previews: some View {
+            ContentView()
+        }
     }
-}
+
