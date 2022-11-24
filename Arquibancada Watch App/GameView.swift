@@ -9,10 +9,13 @@ import SwiftUI
 
 
 struct GameView: View {
-    @State private var away_team_en : String = ""
-    @State private var away_score : Int = 0
-    @State private var home_team_en : String = ""
-    @State private var home_score : Int = 0
+    @State var away_team_en : String = ""
+    @State var away_score : Int = 0
+    @State var away_flag : String = ""
+    @State var home_team_en : String = ""
+    @State var home_score : Int = 0
+    @State var home_flag : String = ""
+    
     @State var urlStr = "http://api.cup2022.ir/api/v1/match/"
     @State var yourToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzdjZDgwNzQ4NzA5MjMzZmQ5ZWU1MzIiLCJpYXQiOjE2NjkyMzgzNTYsImV4cCI6MTY2OTMyNDc1Nn0.TB65_PmnS8mNE4wRcNafu1VKimecVkMYmKsxeiFX9IY"
     @State var matchnum : Int = 3
@@ -21,10 +24,29 @@ struct GameView: View {
         HStack{
             
             VStack{
+                
+                AsyncImage(url: URL(string: away_flag)) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 44, height: 44)
+                .clipShape(RoundedRectangle(cornerRadius: 5))
                 Text(away_team_en)
                 Text("\(away_score)")
             }
             VStack{
+                AsyncImage(url: URL(string: home_flag)) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 44, height: 44)
+                .clipShape(RoundedRectangle(cornerRadius: 5))
                 Text(home_team_en)
                 Text("\(home_score)")
             }
@@ -66,11 +88,13 @@ struct GameView: View {
                     print(decodedResponse)
                     self.away_team_en = decodedResponse.data[0].away_team_en
                     self.away_score = decodedResponse.data[0].away_score
+                    self.away_flag = decodedResponse.data[0].away_flag
                     self.home_team_en = decodedResponse.data[0].home_team_en
                     self.home_score = decodedResponse.data[0].home_score
+                    self.home_flag = decodedResponse.data[0].home_flag
                 }
                 
-//                let word = String(data: data, encoding: .utf8)
+                //                let word = String(data: data, encoding: .utf8)
                 
             }
             
