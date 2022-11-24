@@ -22,7 +22,7 @@ struct ContentView: View {
                     .frame(width: 250, height: 250)
                     .scaledToFill()
             }
-            GameView()
+            HomeView()
         }
     }
 }

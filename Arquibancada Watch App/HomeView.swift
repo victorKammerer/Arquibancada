@@ -7,11 +7,8 @@
 
 import SwiftUI
 
-struct GameView: View {
+struct HomeView: View {
     var body: some View {
-        
-        
-        
         
         VStack{
             
@@ -43,8 +40,8 @@ struct GameView: View {
     }
 }
 
-struct GameView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        HomeView()
     }
 }
