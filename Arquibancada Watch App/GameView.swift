@@ -9,20 +9,32 @@ import SwiftUI
 
 
 struct GameView: View {
-    @State private var match : String = ""
-    @State var urlStr = "http://api.cup2022.ir/api/v1/match/3"
+    @State private var away_team_en : String = ""
+    @State private var away_score : Int = 0
+    @State private var home_team_en : String = ""
+    @State private var home_score : Int = 0
+    @State var urlStr = "http://api.cup2022.ir/api/v1/match/"
     @State var yourToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzdjZDgwNzQ4NzA5MjMzZmQ5ZWU1MzIiLCJpYXQiOjE2NjkyMzgzNTYsImV4cCI6MTY2OTMyNDc1Nn0.TB65_PmnS8mNE4wRcNafu1VKimecVkMYmKsxeiFX9IY"
+    @State var matchnum : Int = 3
     
     var body: some View {
-        VStack{
-            Text(match)
+        HStack{
+            
+            VStack{
+                Text(away_team_en)
+                Text("\(away_score)")
+            }
+            VStack{
+                Text(home_team_en)
+                Text("\(home_score)")
+            }
         }.task {
             await loadData()
         }
     }
     
     func loadData() async {
-        guard let url = URL(string: urlStr) else {
+        guard let url = URL(string: urlStr + "\(matchnum)") else {
             print("Invalid URL")
             return
         }
@@ -49,8 +61,16 @@ struct GameView: View {
             guard let data = data else { return }
             DispatchQueue.main.async {
                 
-                let word = String(data: data, encoding: .utf8)
-                self.match = word!
+                
+                if let decodedResponse = try? JSONDecoder().decode(Match.self, from: data){
+                    print(decodedResponse)
+                    self.away_team_en = decodedResponse.data[0].away_team_en
+                    self.away_score = decodedResponse.data[0].away_score
+                    self.home_team_en = decodedResponse.data[0].home_team_en
+                    self.home_score = decodedResponse.data[0].home_score
+                }
+                
+//                let word = String(data: data, encoding: .utf8)
                 
             }
             

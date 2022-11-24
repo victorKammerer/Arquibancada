@@ -1,11 +1,11 @@
 import Foundation
 
-struct Match : Codable{
+struct Match : Decodable{
     var status : String
-    var gamedata : GameData
+    var data : [GameData]
 }
 
-struct GameData : Codable{
+struct GameData : Decodable{
     var _id : String
     var away_score : Int
     var away_scorers : [String]

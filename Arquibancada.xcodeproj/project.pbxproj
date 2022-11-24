@@ -66,7 +66,6 @@
 		6C84952A292E7F370070E64D = {
 			isa = PBXGroup;
 			children = (
-				8ACF5FDE292F069D001676C4 /* Match.swift */,
 				6C84953B292E7F370070E64D /* Arquibancada Watch App */,
 				6C849532292E7F370070E64D /* Products */,
 			);
@@ -84,6 +83,7 @@
 		6C84953B292E7F370070E64D /* Arquibancada Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				8ACF5FDE292F069D001676C4 /* Match.swift */,
 				8ACF5FE0292F06DC001676C4 /* Arquibancada-Watch-App-Info.plist */,
 				6C84953C292E7F370070E64D /* ArquibancadaApp.swift */,
 				6C84953E292E7F370070E64D /* ContentView.swift */,
