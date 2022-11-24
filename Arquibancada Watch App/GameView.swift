@@ -32,7 +32,7 @@ struct GameView: View {
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(width: 44, height: 44)
+                .frame(width: 64, height: 44)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 Text(away_team_en)
                 Text("\(away_score)")
@@ -45,7 +45,7 @@ struct GameView: View {
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(width: 44, height: 44)
+                .frame(width: 64, height: 44)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 Text(home_team_en)
                 Text("\(home_score)")
