@@ -8,6 +8,7 @@
 import Foundation
 
 struct Match : Decodable{
+    let id = UUID()
     var status : String
     var data : [GameData]
 }
