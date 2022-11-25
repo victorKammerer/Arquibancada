@@ -14,6 +14,7 @@
 		6C849544292E7F390070E64D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C849543292E7F390070E64D /* Preview Assets.xcassets */; };
 		6C849557292F20520070E64D /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C849556292F20520070E64D /* Match.swift */; };
 		8A4903C02930FC5E00DB8334 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4903BF2930FC5E00DB8334 /* API.swift */; };
+		8A4903C22931108D00DB8334 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4903C12931108D00DB8334 /* Login.swift */; };
 		8ACF5FD7292E9FED001676C4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF5FD6292E9FED001676C4 /* HomeView.swift */; };
 		8ACF5FE2292F8F63001676C4 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF5FE1292F8F63001676C4 /* GameView.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		6C849555292F0E610070E64D /* Arquibancada-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Arquibancada-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		6C849556292F20520070E64D /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		8A4903BF2930FC5E00DB8334 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		8A4903C12931108D00DB8334 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		8ACF5FD6292E9FED001676C4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8ACF5FE0292F06DC001676C4 /* Arquibancada-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Arquibancada-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8ACF5FE1292F8F63001676C4 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				6C849556292F20520070E64D /* Match.swift */,
+				8A4903C12931108D00DB8334 /* Login.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A4903C22931108D00DB8334 /* Login.swift in Sources */,
 				6C84953F292E7F370070E64D /* ContentView.swift in Sources */,
 				8ACF5FD7292E9FED001676C4 /* HomeView.swift in Sources */,
 				6C84953D292E7F370070E64D /* ArquibancadaApp.swift in Sources */,

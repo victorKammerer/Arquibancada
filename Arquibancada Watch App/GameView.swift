@@ -12,6 +12,8 @@ struct GameView: View {
     
     @ObservedObject var api : API = API()
     
+    @State var matchnum = 3
+    
     var body: some View {
         
         VStack{
@@ -57,7 +59,7 @@ struct GameView: View {
                 .font(.footnote)
         }.onAppear(){
             Task.init {
-                await api.loadData(matchnum: 4)
+                await api.loadData(matchnum: matchnum)
             }
             
         }
