@@ -9,32 +9,16 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        
+        Color.gray.ignoresSafeArea().opacity(0.1)
         VStack{
-            
-            HStack(spacing: 15){
-                VStack(alignment: .center, spacing: 10){
-                    Group{
-                        Rectangle().frame(width: 42, height: 42).cornerRadius(5)
-                        Text("BRA").font(.title3).fontWeight(.thin).accessibilityLabel("Brasil")
-                        Text("\(2)").font(.largeTitle)
-                    }
-                }
-                
-                Image(systemName: "xmark").resizable().frame(width: 20, height: 20)
-                
-                VStack(alignment: .center, spacing: 10){
-                    Group{
-                        Rectangle().frame(width: 42, height: 42).cornerRadius(5)
-                        Text("ARG").font(.title3).fontWeight(.thin).accessibilityLabel("Argentina")
-                        Text("\(0)")
-                            .font(.largeTitle)
-                    }
-                }
-            }
-            
-            Text("90' + 2")
-                .font(.footnote)
+            Circle()
+                .fill(LinearGradient(colors: [.black, .gray], startPoint: .init(x: 0, y: 0.6), endPoint: .init(x: 0, y: 1.5)))
+                .frame(width: 250, height: 250)
+                .scaledToFill()
+            Circle()
+                .opacity(0)
+                .frame(width: 250, height: 250)
+                .scaledToFill()
         }
         
     }
