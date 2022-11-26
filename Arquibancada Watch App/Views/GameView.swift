@@ -12,7 +12,7 @@ struct GameView: View {
     
     @ObservedObject var api : API = API()
     
-    @State var matchnum = 3
+    @State var matchnum = 24
     
     var body: some View {
         
