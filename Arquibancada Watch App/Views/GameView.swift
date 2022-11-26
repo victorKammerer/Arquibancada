@@ -14,6 +14,8 @@ struct GameView: View {
     
     @State var matchnum = 24
     
+    let timer = Timer.publish(every: 120, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         
         VStack{
@@ -53,6 +55,10 @@ struct GameView: View {
                         Text("\(api.match?.data[0].away_score ?? 0)")
                     }
                 }
+            }.onReceive(timer){ _ in
+                Task.init {
+                    await api.loadData(matchnum: matchnum)
+                }
             }
             
             Text("90' + 2")
@@ -61,7 +67,6 @@ struct GameView: View {
             Task.init {
                 await api.loadData(matchnum: matchnum)
             }
-            
         }
     }
 }
