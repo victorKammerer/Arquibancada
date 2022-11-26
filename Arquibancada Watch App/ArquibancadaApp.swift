@@ -11,7 +11,8 @@ import SwiftUI
 struct Arquibancada_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MotherView().environmentObject(ViewRouter())
+//            Onboarding()
         }
     }
 }
