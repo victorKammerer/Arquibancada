@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C5AA53C29326017002B2385 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AA53B29326017002B2385 /* NewsView.swift */; };
 		6C849538292E7F370070E64D /* Arquibancada Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6C849537292E7F370070E64D /* Arquibancada Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6C84953D292E7F370070E64D /* ArquibancadaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C84953C292E7F370070E64D /* ArquibancadaApp.swift */; };
 		6C84953F292E7F370070E64D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C84953E292E7F370070E64D /* ContentView.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6C5AA53B29326017002B2385 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		6C849531292E7F370070E64D /* Arquibancada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arquibancada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C849537292E7F370070E64D /* Arquibancada Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Arquibancada Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C84953C292E7F370070E64D /* ArquibancadaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArquibancadaApp.swift; sourceTree = "<group>"; };
@@ -55,7 +57,6 @@
 		8A4903BF2930FC5E00DB8334 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8A4903C12931108D00DB8334 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		8ACF5FD6292E9FED001676C4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		8ACF5FE0292F06DC001676C4 /* Arquibancada-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Arquibancada-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8ACF5FE1292F8F63001676C4 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C356BD829325DFF001C6085 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6C84953E292E7F370070E64D /* ContentView.swift */,
+				8ACF5FD6292E9FED001676C4 /* HomeView.swift */,
+				8ACF5FE1292F8F63001676C4 /* GameView.swift */,
+				6C5AA53B29326017002B2385 /* NewsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6C84952A292E7F370070E64D = {
 			isa = PBXGroup;
 			children = (
@@ -90,14 +102,11 @@
 		6C84953B292E7F370070E64D /* Arquibancada Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				8ACF5FE0292F06DC001676C4 /* Arquibancada-Watch-App-Info.plist */,
-				8ACF5FD6292E9FED001676C4 /* HomeView.swift */,
-				8ACF5FE1292F8F63001676C4 /* GameView.swift */,
+				6C849550292EF12B0070E64D /* Model */,
+				6C356BD829325DFF001C6085 /* Views */,
+				6C84953C292E7F370070E64D /* ArquibancadaApp.swift */,
 				8A4903BF2930FC5E00DB8334 /* API.swift */,
 				6C849555292F0E610070E64D /* Arquibancada-Watch-App-Info.plist */,
-				6C84953C292E7F370070E64D /* ArquibancadaApp.swift */,
-				6C84953E292E7F370070E64D /* ContentView.swift */,
-				6C849550292EF12B0070E64D /* Model */,
 				6C849540292E7F390070E64D /* Assets.xcassets */,
 				6C849542292E7F390070E64D /* Preview Content */,
 			);
@@ -220,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A4903C22931108D00DB8334 /* Login.swift in Sources */,
+				6C5AA53C29326017002B2385 /* NewsView.swift in Sources */,
 				6C84953F292E7F370070E64D /* ContentView.swift in Sources */,
 				8ACF5FD7292E9FED001676C4 /* HomeView.swift in Sources */,
 				6C84953D292E7F370070E64D /* ArquibancadaApp.swift in Sources */,
