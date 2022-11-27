@@ -15,9 +15,11 @@ class API : ObservableObject {
     var token = UserDefaults.standard.string(forKey: "token")
     var email = UserDefaults.standard.string(forKey: "email")
     var password = UserDefaults.standard.string(forKey: "password")
-
+    
+    
     
     func loadData(matchnum : Int) async {
+            
         guard let url = URL(string: urlStr + "\(matchnum)") else {
             print("Invalid URL")
             return

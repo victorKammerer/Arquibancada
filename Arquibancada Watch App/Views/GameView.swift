@@ -12,10 +12,10 @@ struct GameView: View {
     
     @ObservedObject var api : API = API()
     
-    @State var matchnum = 24
+    @AppStorage("funcionando") var matchnum : Int = 25
     
     let timer = Timer.publish(every: 120, on: .main, in: .common).autoconnect()
-    
+
     var body: some View {
         
         VStack{
@@ -61,15 +61,27 @@ struct GameView: View {
                 }
             }
             
+            .onChange(of: api.match?.data[0].id) {newValue in
+                if ((api.match?.data[0].finished) ?? "FALSE" != "FALSE") {
+                    matchnum += 1
+                    print(matchnum)
+                    Task.init {
+                        await api.loadData(matchnum: matchnum)
+                    }
+                }
+            }
+            
             Text("90' + 2")
                 .font(.footnote)
         }.onAppear(){
+            print(matchnum)
             Task.init {
                 await api.loadData(matchnum: matchnum)
             }
         }
     }
 }
+
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
