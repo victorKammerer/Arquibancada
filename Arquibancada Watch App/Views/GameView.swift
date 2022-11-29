@@ -12,7 +12,7 @@ struct GameView: View {
     
     @ObservedObject var api : API = API()
     
-    @AppStorage("funcionando") var matchnum : Int = 25
+    @AppStorage("nova") var matchnum : Int = 32
     
     let timer = Timer.publish(every: 120, on: .main, in: .common).autoconnect()
 
@@ -64,7 +64,6 @@ struct GameView: View {
             .onChange(of: api.match?.data[0].id) {newValue in
                 if ((api.match?.data[0].finished) ?? "FALSE" != "FALSE") {
                     matchnum += 1
-                    print(matchnum)
                     Task.init {
                         await api.loadData(matchnum: matchnum)
                     }

@@ -15,18 +15,30 @@ struct Onboarding: View {
     @AppStorage("token") var token : String = "Token"
     
     var body: some View {
-        NavigationView{
-            VStack {
-                NavigationLink(destination: ContentView()) {
-                    Text("Go to app!")
+        
+        
+        TabView {
+
+            Image("Camada 2").resizable().scaledToFit()
+            Text("Acompanhe todos jogos da Copa. Se rolar gol, não se preocupa que a gente treme aqui e pra te avisar!").padding().multilineTextAlignment(.center)
+
+            NavigationView{
+                VStack {
+                    NavigationLink(destination: ContentView()) {
+                        Text("Go to app!")
+                    }
                 }
-            }
-        }.onAppear(){
-            Task.init{
-                await createLogin()
+            }.onAppear(){
+                Task.init{
+                    await createLogin()
+                }
+                
             }
             
-        }
+            
+        }.tabViewStyle(.page)
+        
+        
     }
     
     func createLogin() async {
