@@ -29,12 +29,11 @@ struct Onboarding: View {
                     notify.askPermission()
                 }
             }
-
-
+            
             NavigationView{
                 VStack {
                     
-
+                    
                     NavigationLink(destination: ContentView()) {
                         Text("Vamos começar!")
                     }

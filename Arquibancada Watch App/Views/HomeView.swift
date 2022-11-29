@@ -26,15 +26,6 @@ struct HomeView: View {
                     .frame(width: 250, height: 250)
                     .scaledToFill()
             }
-            
-            Button("notification"){
-                notify.sendNotification(
-                    date: Date(),
-                    title: "TITULO",
-                    timeInterval: 1,
-                    body: "texxtinho do lembrete")
-            }
-            
         }
         
     }

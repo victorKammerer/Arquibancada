@@ -13,8 +13,8 @@ struct Arquibancada_Watch_AppApp: App {
         WindowGroup {
 //            MotherView().environmentObject(ViewRouter())
 //        Onboarding()
-//            ContentView()
-            HomeView()
+            ContentView()
+//            HomeView()
         }
     }
 }
