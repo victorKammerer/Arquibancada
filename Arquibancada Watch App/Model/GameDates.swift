@@ -5,19 +5,9 @@ struct GameDates {
     
     
 //    let dates : GameDates = GameDates()
-//
-//    //for date in dates.dates{print(date)}
-//
 //    let dateFormatter = DateFormatter()
-//
 //    dateFormatter.dateFormat = "MM'-'dd'-'yyyy'T'HH"
-//
 //    let date = dateFormatter.date(from: dates.dates[0])!
-//
-//    print(date)
-//    print(dates.dates[0])
-//
-//    print(Date.now)
     
     let dates : [String] = [
         
