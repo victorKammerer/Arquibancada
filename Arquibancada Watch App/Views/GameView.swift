@@ -12,7 +12,7 @@ struct GameView: View {
     
     @ObservedObject var api : API = API()
     
-    @AppStorage("nova") var matchnum : Int = 32
+    @AppStorage("nova") var matchnum : Int = 33
     
     let timer = Timer.publish(every: 120, on: .main, in: .common).autoconnect()
 
