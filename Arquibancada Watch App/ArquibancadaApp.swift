@@ -12,8 +12,9 @@ struct Arquibancada_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
 //            MotherView().environmentObject(ViewRouter())
-        Onboarding()
-//            ContentView()
+//        Onboarding()
+            ContentView()
+//            HomeView()
         }
     }
 }

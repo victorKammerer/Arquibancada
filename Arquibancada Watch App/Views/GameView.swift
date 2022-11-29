@@ -10,12 +10,17 @@ import SwiftUI
 
 struct GameView: View {
     
+    var notify = NotificationHandler()
+    
     @ObservedObject var api : API = API()
     
-    @AppStorage("nova") var matchnum : Int = 32
+    @AppStorage("matchnum") var matchnum : Int = 36
     
     let timer = Timer.publish(every: 120, on: .main, in: .common).autoconnect()
-
+    
+    let timer2 = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
+    
+    
     var body: some View {
         
         VStack{
@@ -62,6 +67,7 @@ struct GameView: View {
             }
             
             .onChange(of: api.match?.data[0].id) {newValue in
+                
                 if ((api.match?.data[0].finished) ?? "FALSE" != "FALSE") {
                     matchnum += 1
                     Task.init {
@@ -69,11 +75,32 @@ struct GameView: View {
                     }
                 }
             }
+            .onChange(of: api.match?.data[0].away_score){ goal in
+                if (goal != 0 && goal != nil){
+                    notify.sendNotification(
+                        date: Date(),
+                        title: "⚽️ GOL!",
+                        timeInterval: 5,
+                        body:  "\((api.match?.data[0].away_team_en)!)")
+                }
+            }
+            .onChange(of: api.match?.data[0].home_score){ goal in
+                if (goal != 0 && goal != nil){
+                    notify.sendNotification(
+                        date: Date(),
+                        title: "⚽️ GOL!",
+                        timeInterval: 5,
+                        body:  "\((api.match?.data[0].home_team_en)!)")
+                }
+            }
             
             Text("90' + 2")
                 .font(.footnote)
+            Button("aumentar o placar"){
+                api.match?.data[0].home_score += 1
+            }
+            
         }.onAppear(){
-            print(matchnum)
             Task.init {
                 await api.loadData(matchnum: matchnum)
             }

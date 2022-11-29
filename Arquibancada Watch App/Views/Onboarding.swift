@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Onboarding: View {
     
+    let notify = NotificationHandler()
+    
     @AppStorage("name") var name : String = "User"
     @AppStorage("email") var email : String = "Email"
     @AppStorage("password") var password : String = "Password"
@@ -16,16 +18,24 @@ struct Onboarding: View {
     
     var body: some View {
         
-        
         TabView {
-
             Image("Camada 2").resizable().scaledToFit()
             Text("Acompanhe todos jogos da Copa. Se rolar gol, não se preocupa que a gente treme aqui e pra te avisar!").padding().multilineTextAlignment(.center)
-
+            
+            VStack{
+                Text("Você nos permite lhe enviar notificações?").padding().multilineTextAlignment(.center)
+                
+                Button("Permito"){
+                    notify.askPermission()
+                }
+            }
+            
             NavigationView{
                 VStack {
+                    
+                    
                     NavigationLink(destination: ContentView()) {
-                        Text("Go to app!")
+                        Text("Vamos começar!")
                     }
                 }
             }.onAppear(){
