@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct GameView: View {
     
     var notify = NotificationHandler()
@@ -17,9 +16,6 @@ struct GameView: View {
     @AppStorage("matchnum") var matchnum : Int = 36
     
     let timer = Timer.publish(every: 120, on: .main, in: .common).autoconnect()
-    
-    let timer2 = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
-    
     
     var body: some View {
         
@@ -77,28 +73,28 @@ struct GameView: View {
             }
             .onChange(of: api.match?.data[0].away_score){ goal in
                 if (goal != 0 && goal != nil){
-                    notify.sendNotification(
-                        date: Date(),
-                        title: "⚽️ GOL!",
-                        timeInterval: 5,
-                        body:  "\((api.match?.data[0].away_team_en)!)")
+//                    notify.sendNotification(
+//                        date: Date(),
+//                        title: "⚽️ GOL!",
+//                        timeInterval: 5,
+//                        body:  "\((api.match?.data[0].away_team_en)!)")
                 }
             }
             .onChange(of: api.match?.data[0].home_score){ goal in
                 if (goal != 0 && goal != nil){
-                    notify.sendNotification(
-                        date: Date(),
-                        title: "⚽️ GOL!",
-                        timeInterval: 5,
-                        body:  "\((api.match?.data[0].home_team_en)!)")
+//                    notify.sendNotification(
+//                        date: Date(),
+//                        title: "⚽️ GOL!",
+//                        timeInterval: 5,
+//                        body:  "\((api.match?.data[0].home_team_en)!)")
                 }
             }
             
             Text("90' + 2")
                 .font(.footnote)
-            Button("aumentar o placar"){
-                api.match?.data[0].home_score += 1
-            }
+//            Button("aumentar o placar"){
+//                api.match?.data[0].home_score += 1
+//            }
             
         }.onAppear(){
             Task.init {
