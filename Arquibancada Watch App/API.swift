@@ -50,6 +50,7 @@ class API : ObservableObject {
             }
             guard let data = data else { return }
             DispatchQueue.main.async {
+                
                 if let decodedResponse = try? JSONDecoder().decode(Match.self, from: data){
                     
                     if (self.match?.data[0].away_score != decodedResponse.data[0].away_score){
@@ -67,12 +68,12 @@ class API : ObservableObject {
                                                          timeInterval: 5,
                                                          body:  "\(decodedResponse.data[0].home_team_en)")
                         }
-//                        else {
-//                            self.notify.sendNotification(date: Date(),
-//                                                         title: "Jogo em andamento",
-//                                                         timeInterval: 5,
-//                                                         body:  "\(decodedResponse.data[0].home_team_en) x \(decodedResponse.data[0].away_team_en)")
-//                        }
+                        else {
+                            self.notify.sendNotification(date: Date(),
+                                                         title: "Jogo em andamento",
+                                                         timeInterval: 5,
+                                                         body:  "\(decodedResponse.data[0].home_team_en) x \(decodedResponse.data[0].away_team_en)")
+                        }
                     }
                     self.match = decodedResponse
                 }

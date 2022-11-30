@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct GameView: View {
     
     var notify = NotificationHandler()
