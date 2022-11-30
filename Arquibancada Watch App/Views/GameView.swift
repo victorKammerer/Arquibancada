@@ -16,7 +16,7 @@ struct GameView: View {
     
     @AppStorage("matchnum") var matchnum : Int = 36
     
-    let timer = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 120, on: .main, in: .common).autoconnect()
     
     var body: some View {
         
@@ -93,9 +93,9 @@ struct GameView: View {
             
             Text("90' + 2")
                 .font(.footnote)
-            Button("aumentar o placar"){
-                api.match?.data[0].home_score += 1
-            }
+//            Button("aumentar o placar"){
+//                api.match?.data[0].home_score += 1
+//            }
             
         }.onAppear(){
             Task.init {
