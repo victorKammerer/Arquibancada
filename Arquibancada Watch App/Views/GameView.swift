@@ -34,7 +34,7 @@ struct GameView: View {
                         .scaledToFill()
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                         Text(api.match?.data[0].home_team_en.prefix(3).uppercased() ?? "TEAM 1").accessibilityLabel(api.match?.data[0].home_team_en ?? "Team one")
-                        Text("\(api.match?.data[0].home_score ?? 0)")
+                        Text("\(api.match?.data[0].home_score ?? 0)").font(.largeTitle)
                     }
                 }
                 
@@ -53,7 +53,7 @@ struct GameView: View {
                         .scaledToFill()
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                         Text(api.match?.data[0].away_team_en.prefix(3).uppercased() ?? "TEAM 2").accessibilityLabel(api.match?.data[0].home_team_en ?? "Team one")
-                        Text("\(api.match?.data[0].away_score ?? 0)")
+                        Text("\(api.match?.data[0].away_score ?? 0)").font(.largeTitle)
                     }
                 }
             }.onReceive(timer){ _ in
