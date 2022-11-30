@@ -8,6 +8,8 @@
 import Foundation
 
 class API : ObservableObject {
+    var notify = NotificationHandler()
+    
     @Published var match : Match?
     var urlStr = "http://api.cup2022.ir/api/v1/match/"
     var token1 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzdjZDgwNzQ4NzA5MjMzZmQ5ZWU1MzIiLCJpYXQiOjE2Njk0ODg0ODUsImV4cCI6MTY2OTU3NDg4NX0.peDBEnUZ__Qh3vDFIrYvlQmi5jJPRMTN-2znhh_At1k"
@@ -19,7 +21,7 @@ class API : ObservableObject {
     
     
     func loadData(matchnum : Int) async {
-            
+        
         guard let url = URL(string: urlStr + "\(matchnum)") else {
             print("Invalid URL")
             return
@@ -40,7 +42,7 @@ class API : ObservableObject {
                     
                     Task.init {
                         await getNewToken(matchnum: matchnum)
-
+                        
                     }
                     
                     return
@@ -49,6 +51,27 @@ class API : ObservableObject {
             guard let data = data else { return }
             DispatchQueue.main.async {
                 if let decodedResponse = try? JSONDecoder().decode(Match.self, from: data){
+                    if (self.match?.data[0].away_score != decodedResponse.data[0].away_score){
+                        if (decodedResponse.data[0].away_score != 0){
+                            self.notify.sendNotification(date: Date(),
+                                                         title: "⚽️ GOL!",
+                                                         timeInterval: 5,
+                                                         body:  "\(decodedResponse.data[0].away_team_en)")
+                        }
+                    }
+                    if (self.match?.data[0].home_score != decodedResponse.data[0].home_score){
+                        if (decodedResponse.data[0].home_score != 0){
+                            self.notify.sendNotification(date: Date(),
+                                                         title: "⚽️ GOL!",
+                                                         timeInterval: 5,
+                                                         body:  "\(decodedResponse.data[0].home_team_en)")
+                        } else {
+                            self.notify.sendNotification(date: Date(),
+                                                         title: "Jogo em andamento",
+                                                         timeInterval: 5,
+                                                         body:  "\(decodedResponse.data[0].home_team_en) x \(decodedResponse.data[0].away_team_en)")
+                        }
+                    }
                     self.match = decodedResponse
                 }
             }
