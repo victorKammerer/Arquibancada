@@ -80,7 +80,7 @@ struct GameView: View {
                     }
                 }
             }
-            Text(adjustDate(qatar_date: api.match?.data[0].local_date ?? "matchtime"))
+            Text(adjustTime(gametime: api.match?.data[0].time_elapsed ?? "tempo"))
                 .font(.footnote)
             
         }.onAppear(){
@@ -90,18 +90,18 @@ struct GameView: View {
         }
     }
     
-    func adjustDate(qatar_date: String) -> String{
-        if qatar_date == "matchtime"{
-            return "matchtime"
+    func adjustTime(gametime: String) -> String{
+        if gametime == "tempo"{
+            return "tempo"
+        } else if gametime == "h1" {
+            return "1º Tempo"
+        } else if gametime == "h2" {
+            return "2º Tempo"
+        }else if gametime == "h1" {
+            return "Intervalo"
+        } else {
+            return "terminado"
         }
-        
-        let qatar_date = "12/1/2022/ 18:00"
-        let qatar_full_hour = qatar_date.suffix(5)
-        let qatar_hour = qatar_full_hour.prefix(2)
-        let brazil_hour = Int(qatar_hour)! - 6
-        let final_hour = qatar_date.dropLast(5) + String(brazil_hour) + ":00"
-
-        return final_hour
     }
     
 }
