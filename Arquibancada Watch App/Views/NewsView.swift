@@ -25,7 +25,7 @@ struct NewsView: View {
                         
                     }
                     .onAppear {
-                       // proxy.scrollTo(value, anchor: .center)
+                       //        proxy.scrollTo(value, anchor: .center)
                     }
                 }
             }

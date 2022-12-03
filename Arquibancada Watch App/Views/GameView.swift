@@ -83,6 +83,9 @@ struct GameView: View {
             Text(adjustTime(gametime: api.match?.data[0].time_elapsed ?? "tempo"))
                 .font(.footnote)
             
+            Text(adjustMatch(stage: api.match?.data[0].type ?? "finais"))
+                .font(.footnote)
+            
         }.onAppear(){
             Task.init {
                 await api.loadData(matchnum: matchnum)
@@ -93,14 +96,34 @@ struct GameView: View {
     func adjustTime(gametime: String) -> String{
         if gametime == "tempo"{
             return "tempo"
-        } else if gametime == "h1" {
+        }else if gametime == "notstarted"{
+            return "Próximo jogo"
+        }else if gametime == "h1" {
             return "1º Tempo"
         } else if gametime == "h2" {
             return "2º Tempo"
-        }else if gametime == "h1" {
+        }else if gametime == "hf" {
             return "Intervalo"
         } else {
-            return "terminado"
+            return "Terminado"
+        }
+    }
+    
+    func adjustMatch(stage: String) -> String{
+        if stage == "finais"{
+            return "finais"
+        }else if stage == "R16"{
+            return "Oitavas de final"
+        }else if stage == "QR" {
+            return "Quartas de final"
+        } else if stage == "semi" {
+            return "Semifinal"
+        }else if stage == "3RD"{
+            return "Terceiro lugar"
+        }else if stage == "FIN" {
+            return "Final"
+        } else {
+            return "Terminado"
         }
     }
     
